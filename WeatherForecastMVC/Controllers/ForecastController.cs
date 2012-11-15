@@ -19,7 +19,7 @@ namespace WeatherForecastMVC.Controllers
             var weatherSource = new LiveWeatherUndergroundSource();
             var weatherReader = new WeatherUndergroundReader(weatherSource);
             var temp = weatherReader.GetPeriodTemp(id);
-            return "-" + temp;
+            return  temp;
         }
 
         public string GetTempType()
