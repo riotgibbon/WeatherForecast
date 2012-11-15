@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WhenReadingLiveJsonForecastData.cs" />
     <Compile Include="MockWeatherUndergroundSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WhenReadingJsonForecastData.cs" />
