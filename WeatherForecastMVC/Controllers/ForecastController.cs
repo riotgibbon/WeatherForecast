@@ -21,5 +21,10 @@ namespace WeatherForecastMVC.Controllers
             var temp = weatherReader.GetPeriodTemp(id);
             return temp;
         }
+
+        public string GetTempType()
+        {
+            return "celsius";
+        }
     }
 }
