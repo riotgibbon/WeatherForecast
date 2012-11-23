@@ -12,7 +12,7 @@ namespace WeatherForecastMVC.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2", "value3", "value4" };
+            return new string[] { "steve", "value2", "value3", "value4" };
       
         }
 
