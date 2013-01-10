@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Machine.Specifications;
+using WeatherForecast.Core;
 
 namespace WeatherForecastReader.Tests
 {

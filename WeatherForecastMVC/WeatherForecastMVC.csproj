@@ -238,6 +238,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WeatherForecast.Core\WeatherForecast.Core.csproj">
+      <Project>{FB115A42-F4EA-4AE9-9FAF-B418E36984A8}</Project>
+      <Name>WeatherForecast.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeatherForecastReader\WeatherForecastReader.csproj">
       <Project>{3f942d3b-f254-4e72-8d3f-3ac28b736bf0}</Project>
       <Name>WeatherForecastReader</Name>
