@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.MVVMCore", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.WinRT", "WeatherForecast.WinRT\WeatherForecast.WinRT.csproj", "{BE0D1F40-499C-4E7E-95D5-32478E01078C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Netduino", "Netduino", "{A445F556-5206-4C16-A3EB-59DEBF9D4E88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColdAlert", "ColdAlert\ColdAlert\ColdAlert.csproj", "{DC697005-9A78-43ED-B975-5411D7D473FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,8 +115,23 @@ Global
 		{BE0D1F40-499C-4E7E-95D5-32478E01078C}.Release|x86.ActiveCfg = Release|x86
 		{BE0D1F40-499C-4E7E-95D5-32478E01078C}.Release|x86.Build.0 = Release|x86
 		{BE0D1F40-499C-4E7E-95D5-32478E01078C}.Release|x86.Deploy.0 = Release|x86
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Release|x64.ActiveCfg = Release|Any CPU
+		{DC697005-9A78-43ED-B975-5411D7D473FA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DC697005-9A78-43ED-B975-5411D7D473FA} = {A445F556-5206-4C16-A3EB-59DEBF9D4E88}
 	EndGlobalSection
 EndGlobal
