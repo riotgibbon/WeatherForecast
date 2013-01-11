@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CityProvider\CityProviderTests.cs" />
     <Compile Include="WhenReadingLiveJsonForecastData.cs" />
     <Compile Include="MockWeatherUndergroundSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,11 +68,16 @@
       <Project>{FB115A42-F4EA-4AE9-9FAF-B418E36984A8}</Project>
       <Name>WeatherForecast.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WeatherForecast.MVVMCore\WeatherForecast.MVVMCore.csproj">
+      <Project>{F5D7E9DF-D0AB-4B7B-949C-4F42AD525C11}</Project>
+      <Name>WeatherForecast.MVVMCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeatherForecastReader\WeatherForecastReader.csproj">
       <Project>{3f942d3b-f254-4e72-8d3f-3ac28b736bf0}</Project>
       <Name>WeatherForecastReader</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

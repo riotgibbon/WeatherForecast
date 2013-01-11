@@ -165,6 +165,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WeatherForecast.Core\WeatherForecast.Core.csproj">
+      <Project>{fb115a42-f4ea-4ae9-9faf-b418e36984a8}</Project>
+      <Name>WeatherForecast.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeatherForecast.MVVMCore\WeatherForecast.MVVMCore.csproj">
       <Project>{f5d7e9df-d0ab-4b7b-949c-4f42ad525c11}</Project>
       <Name>WeatherForecast.MVVMCore</Name>

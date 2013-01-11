@@ -10,5 +10,7 @@ namespace WeatherForecast.Core.Domain
     {
         public string CountryCode { get; set; }
         public string Name { get; set; }
+
+        public string UniqueId { get; set; }
     }
 }

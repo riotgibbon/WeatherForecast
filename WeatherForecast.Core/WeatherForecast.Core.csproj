@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Domain\City.cs" />
     <Compile Include="Domain\WUG\WUGResponses.cs" />
+    <Compile Include="Interfaces\ICityProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="WeatherUndergroundSource.cs" />
@@ -47,6 +48,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
