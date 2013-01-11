@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Netduino", "Netduino", "{A4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColdAlert", "ColdAlert\ColdAlert\ColdAlert.csproj", "{DC697005-9A78-43ED-B975-5411D7D473FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColdAlert.Tests", "ColdAlert\ColdAlert.Tests\ColdAlert.Tests.csproj", "{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,11 +129,22 @@ Global
 		{DC697005-9A78-43ED-B975-5411D7D473FA}.Release|ARM.ActiveCfg = Release|Any CPU
 		{DC697005-9A78-43ED-B975-5411D7D473FA}.Release|x64.ActiveCfg = Release|Any CPU
 		{DC697005-9A78-43ED-B975-5411D7D473FA}.Release|x86.ActiveCfg = Release|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Release|x64.ActiveCfg = Release|Any CPU
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DC697005-9A78-43ED-B975-5411D7D473FA} = {A445F556-5206-4C16-A3EB-59DEBF9D4E88}
+		{5CEBA9D6-5CDD-4525-B3D3-C2460B09C3CD} = {A445F556-5206-4C16-A3EB-59DEBF9D4E88}
 	EndGlobalSection
 EndGlobal

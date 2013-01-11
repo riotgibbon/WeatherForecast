@@ -1,4 +1,7 @@
-﻿using WeatherForecast.WinRT.Common;
+﻿using Cirrious.MvvmCross.ExtensionMethods;
+using Cirrious.MvvmCross.Interfaces.ServiceProvider;
+using Cirrious.MvvmCross.Interfaces.ViewModels;
+using WeatherForecast.WinRT.Common;
 
 using System;
 using System.Collections.Generic;
@@ -23,7 +26,7 @@ namespace WeatherForecast.WinRT
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    sealed partial class App : Application, IMvxServiceConsumer<IMvxStartNavigation>
     {
         /// <summary>
         /// Initializes the singleton Application object.  This is the first line of authored code
@@ -77,10 +80,12 @@ namespace WeatherForecast.WinRT
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                if (!rootFrame.Navigate(typeof(ItemsPage), "AllGroups"))
-                {
-                    throw new Exception("Failed to create initial page");
-                }
+                // Create a Frame to act navigation context and navigate to the first page
+                var setup = new Setup(rootFrame);
+                setup.Initialize();
+
+                var start = this.GetService<IMvxStartNavigation>();
+                start.Start();
             }
             // Ensure the current window is active
             Window.Current.Activate();

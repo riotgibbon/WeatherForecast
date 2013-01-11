@@ -1,4 +1,5 @@
-﻿using WeatherForecast.WinRT.Data;
+﻿using WeatherForecast.MVVMCore.ViewModels;
+using WeatherForecast.WinRT.Data;
 
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,18 @@ namespace WeatherForecast.WinRT
     /// A page that displays a collection of item previews.  In the Split Application this page
     /// is used to display and select one of the available groups.
     /// </summary>
-    public sealed partial class ItemsPage : WeatherForecast.WinRT.Common.LayoutAwarePage
+    public sealed partial class HomeView : WeatherForecast.WinRT.Common.LayoutAwarePage
     {
-        public ItemsPage()
+
+        public HomeView()
         {
             this.InitializeComponent();
+        }
+
+        public new HomeViewModel ViewModel
+        {
+            get { return (HomeViewModel)base.ViewModel; }
+            set { base.ViewModel = value; }
         }
 
         /// <summary>
@@ -43,7 +51,7 @@ namespace WeatherForecast.WinRT
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var sampleDataGroups = SampleDataSource.GetGroups((String)navigationParameter);
+            var sampleDataGroups = SampleDataSource.GetGroups("AllGroups");
             this.DefaultViewModel["Items"] = sampleDataGroups;
         }
 

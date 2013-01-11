@@ -34,7 +34,7 @@ namespace WeatherForecast.WinRT.Common
     /// </list>
     /// </summary>
     [Windows.Foundation.Metadata.WebHostHidden]
-    public class LayoutAwarePage : Page
+    public class LayoutAwarePage : Cirrious.MvvmCross.WinRT.Views.MvxWinRTPage
     {
         /// <summary>
         /// Identifies the <see cref="DefaultViewModel"/> dependency property.

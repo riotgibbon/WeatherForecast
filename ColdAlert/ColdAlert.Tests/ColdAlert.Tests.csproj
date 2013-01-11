@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ColdAlert\ColdAlert.csproj">
-      <Project>{DC697005-9A78-43ED-B975-5411D7D473FA}</Project>
+      <Project>{dc697005-9a78-43ed-b975-5411d7d473fa}</Project>
       <Name>ColdAlert</Name>
     </ProjectReference>
   </ItemGroup>
