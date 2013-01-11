@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using WeatherForecast.Core;
 
 namespace WeatherForecastReader.Tests
@@ -9,6 +10,12 @@ namespace WeatherForecastReader.Tests
     public class MockWeatherUndergroundSource : WeatherUndergroundSource
     {
         #region WeatherUndergroundSource Members
+
+
+        public Task<string> GetJsonAsync()
+        {
+            return Task.Run(() => GetJson());
+        }
 
         public string GetJson()
         {
@@ -407,5 +414,7 @@ namespace WeatherForecastReader.Tests
         }
 
         #endregion
+
+
     }
 }

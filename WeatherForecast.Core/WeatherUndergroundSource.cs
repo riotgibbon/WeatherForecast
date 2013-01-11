@@ -1,7 +1,9 @@
+using System.Threading.Tasks;
+
 namespace WeatherForecast.Core
 {
     public interface WeatherUndergroundSource
     {
-        string GetJson();
+        Task<string> GetJsonAsync();
     }
 }

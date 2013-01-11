@@ -1,33 +1,49 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 using WeatherForecast.Core.Domain.WUG;
 using Newtonsoft.Json;
-using System.Linq;
+
 
 namespace WeatherForecast.Core
 {
     public class WeatherUndergroundReader
     {
+        private readonly WeatherUndergroundSource _weatherUndergroundSource;
+        private WUGResponse response;
 
-        string jsonSource;
         public WeatherUndergroundReader(WeatherUndergroundSource weatherUndergroundSource)
         {
-            jsonSource = weatherUndergroundSource.GetJson();
+            _weatherUndergroundSource = weatherUndergroundSource;
+            
         }
 
-        public string GetPeriodTemp(int periodId)
+        private async Task<string> GetJsonData()
+        {
+           return await _weatherUndergroundSource.GetJsonAsync();
+        }
+
+        public async Task<string> GetPeriodMinTempAsync(int periodId)
         {
 
-            var result = JsonConvert.DeserializeObject < WUGResponse>(jsonSource);
-            
-
-            var periods =  result.forecast.simpleforecast.forecastday;
-
-        //var dictionary = root.ToDictionary(x => (int) x["period"],
-        //                                   x => (dynamic)x["low"]);
-            var period = periods.Where(p => p.period == periodId).FirstOrDefault();
-
+            var result = await GetWUGForecast();
+            var forecastDays =  result.forecast.simpleforecast.forecastday;
+            Func<Forecastday2, bool> predicate = p => p.period == periodId;
+            var period = GetForecastDay(forecastDays, predicate);
             return period.low.celsius;
+        }
+
+        private async Task<WUGResponse> GetWUGForecast()
+        {
+            if (response == null)
+                response = JsonConvert.DeserializeObject<WUGResponse>(await GetJsonData());
+            return response;
+        }
+
+        private static T GetForecastDay<T>(IEnumerable<T> periods, Func<T, bool> predicate)
+        {
+            return periods.Where(predicate).FirstOrDefault();
         }
     }
 }

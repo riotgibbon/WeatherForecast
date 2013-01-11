@@ -27,8 +27,8 @@ namespace WeatherForecastReader.Tests
     [Subject("reading Live data")]
     public class WhenReadingLiveForecast: LiveForecastBase
     {
-       
-        Because of = () => expectedTemp = weatherReader.GetPeriodTemp(1);
+
+        Because of = async () => expectedTemp = await weatherReader.GetPeriodMinTempAsync(1);
 
         It should_be_valid = () =>
             expectedTemp.ShouldNotBeNull();

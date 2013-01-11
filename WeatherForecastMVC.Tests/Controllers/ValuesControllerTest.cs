@@ -10,7 +10,7 @@ using WeatherForecastMVC.Controllers;
 
 namespace WeatherForecastMVC.Tests.Controllers
 {
-    [TestClass]
+    //[TestClass]
     public class ValuesControllerTest
     {
         [TestMethod]

@@ -27,8 +27,7 @@ namespace WeatherForecastReader.Tests
     [Subject("reading Period 1 data")]
     public class WhenReadingJsonForecastPeriod1Data : JsonForecastBase
     {
-       
-        Because of = () => expectedTemp = weatherReader.GetPeriodTemp(1);
+        private Because of =  () => expectedTemp = weatherReader.GetPeriodMinTempAsync(1).Result;
 
         It should_be_4 = () =>
             expectedTemp.ShouldEqual<string>("4");
@@ -38,7 +37,7 @@ namespace WeatherForecastReader.Tests
     public class WhenReadingJsonForecastPeriod2Data : JsonForecastBase
     {
 
-        Because of = () => expectedTemp = weatherReader.GetPeriodTemp(2);
+        Because of =  () => expectedTemp = weatherReader.GetPeriodMinTempAsync(2).Result;
 
         It should_be_3 = () =>
             expectedTemp.ShouldEqual<string>("3");
