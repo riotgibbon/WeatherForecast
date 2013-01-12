@@ -2,6 +2,7 @@
 using Cirrious.MvvmCross.ExtensionMethods;
 using Cirrious.MvvmCross.Interfaces.ServiceProvider;
 using Cirrious.MvvmCross.ViewModels;
+using WeatherForecast.Core;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Interfaces;
 
@@ -30,6 +31,7 @@ namespace WeatherForecast.MVVMCore.ViewModels
         private async void LoadCities()
         {
             Cities = await CityProvider.GetCurrentCitiesAsync();
+            //CityForecastProvider cityForecastProvider = new CityForecastProvider(Cities, new WebTools);
         }
 
         private ICityProvider CityProvider
