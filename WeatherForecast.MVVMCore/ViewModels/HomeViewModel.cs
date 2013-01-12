@@ -12,9 +12,14 @@ namespace WeatherForecast.MVVMCore.ViewModels
         private List<City> _cities;
         public List<City> Cities
         {
-            get { return _cities; }
-            set { _cities = value;
-            RaisePropertyChanged("Cities");}
+            get
+            {
+                return _cities;
+            }
+            set { 
+                _cities = value;
+                RaisePropertyChanged("Cities");
+            }
         }
 
         public HomeViewModel()

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using WeatherForecast.Core.Domain;
+using WeatherForecast.MVVMCore.Models;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -229,6 +231,11 @@ namespace WeatherForecast.WinRT.Data
         public ObservableCollection<SampleDataGroup> AllGroups
         {
             get { return this._allGroups; }
+        }
+
+        public ObservableCollection<City> Cities
+        {
+            get { return new ObservableCollection<City>(StaticCityProvider.GetCurrentCities()); }
         }
 
         public static IEnumerable<SampleDataGroup> GetGroups(string uniqueId)

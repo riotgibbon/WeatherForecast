@@ -358,6 +358,7 @@ namespace WeatherForecast.WinRT.Common
                 // from cache
                 this.LoadState(e.Parameter, (Dictionary<String, Object>)frameState[this._pageKey]);
             }
+            base.OnNavigatedTo(e);
         }
 
         /// <summary>
