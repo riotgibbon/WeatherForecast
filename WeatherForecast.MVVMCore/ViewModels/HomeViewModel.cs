@@ -8,9 +8,11 @@ using WeatherForecast.Core.Interfaces;
 
 namespace WeatherForecast.MVVMCore.ViewModels
 {
-    public class HomeViewModel : MvxViewModel, IMvxServiceConsumer<ICityProvider>
+    public class HomeViewModel : MvxViewModel
     {
         private List<City> _cities;
+        private List<CityForecast> _cityForecasts;
+
         public List<City> Cities
         {
             get
@@ -30,15 +32,28 @@ namespace WeatherForecast.MVVMCore.ViewModels
 
         private async void LoadCities()
         {
-            Cities = await CityProvider.GetCurrentCitiesAsync();
-            //CityForecastProvider cityForecastProvider = new CityForecastProvider(Cities, new WebTools);
+           Cities = await CityProvider.GetCurrentCitiesAsync();
+           CityForecasts = await CityForecastProvider.GetCityForecastsAsync(Cities);
+
         }
 
         private ICityProvider CityProvider
         {
             get { return this.GetService<ICityProvider>(); }
         }
+        private ICityForecastProvider CityForecastProvider
+        {
+            get { return this.GetService<ICityForecastProvider>(); }
+        }
 
-
+        public List<CityForecast> CityForecasts
+        {
+            get { return _cityForecasts; }
+            set
+            {
+                _cityForecasts = value;
+                RaisePropertyChanged(()=>CityForecasts);
+            }
+        }
     }
 }

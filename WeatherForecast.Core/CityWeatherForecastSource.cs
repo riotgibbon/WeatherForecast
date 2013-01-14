@@ -4,24 +4,22 @@ using WeatherForecast.Core.Interfaces;
 
 namespace WeatherForecast.Core
 {
-    public class CityWeatherForecastSource:WeatherUndergroundSource
+    public class CityWeatherForecastSource
     {
-        private City city;
+        
         private IWebTools webTools;
 
-        public CityWeatherForecastSource(City city, IWebTools webTools)
+        public CityWeatherForecastSource(IWebTools webTools)
         {
-            // TODO: Complete member initialization
-            this.city = city;
             this.webTools = webTools;
         }
-        public Task<string> GetJsonAsync()
+        public Task<string> GetJsonAsync(City city)
         {
-            var jsonUrl = GetCityJsonUrl();
+            var jsonUrl = GetCityJsonUrl(city);
             return webTools.DownloadString(jsonUrl);
         }
 
-        private string GetCityJsonUrl()
+        private string GetCityJsonUrl(City city)
         {
             var apiKey = "8a497054d4f3f9e8";
             string jsonUrl = string.Format("http://api.wunderground.com/api/{2}/forecast/q/{0}/{1}.json", city.CountryCode,

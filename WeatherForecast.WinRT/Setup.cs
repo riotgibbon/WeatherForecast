@@ -8,6 +8,8 @@ namespace WeatherForecast.WinRT
     public class Setup
         : MvxBaseWinRTSetup
     {
+        private WeatherForecastApp _app;
+
         public Setup(Frame rootFrame)
             : base(rootFrame)
         {
@@ -15,14 +17,20 @@ namespace WeatherForecast.WinRT
 
         protected override MvxApplication CreateApp()
         {
-            var app = new WeatherForecastApp();
-            return app;
+            _app = new WeatherForecastApp();
+            return _app;
         }
 
         protected override void AddPluginsLoaders(Cirrious.MvvmCross.Platform.MvxLoaderPluginRegistry loaders)
         {
             loaders.AddConventionalPlugin<Cirrious.MvvmCross.Plugins.Visibility.WinRT.Plugin>();
             base.AddPluginsLoaders(loaders);
+        }
+        protected override void InitializeIoC()
+        {
+            
+            base.InitializeIoC();
+
         }
     }
 }

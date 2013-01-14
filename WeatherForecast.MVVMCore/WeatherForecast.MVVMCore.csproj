@@ -35,11 +35,15 @@
   <ItemGroup>
     <Compile Include="Models\StaticCityProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\PortableWebTools.cs" />
     <Compile Include="StartNavigation.cs" />
     <Compile Include="WeatherForecastApp.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac\Portable\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Cirrious.MvvmCross">
       <HintPath>..\packages\MVVMCross\Cirrious.MvvmCross.dll</HintPath>
     </Reference>

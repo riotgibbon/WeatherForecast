@@ -25,7 +25,7 @@ namespace WeatherForecastReader.Tests.CityProvider
         Because of = () => cities = StaticCityProvider.GetCurrentCities();
     }
 
-    [Subject("When reading cities sync")]
+    [Subject(typeof(StaticCityProvider), "When reading cities sync")]
     public class WhenReadingCitiesDirectly : WithSyncCities
     {
         private It should_have_2_cities = () => cities.Count.ShouldEqual(2);
@@ -35,8 +35,8 @@ namespace WeatherForecastReader.Tests.CityProvider
         private It second_country_should_be_CN = () => cities[1].CountryCode.ShouldEqual("CN");
     }
 
-  
-    [Subject("When reading cities async")]
+
+    [Subject(typeof(StaticCityProvider), "When reading cities async")]
     public class WhenReadingCitiesAsync : WithStaticCityProvider
     {
         Because of = () => cities = staticCityProvider.GetCurrentCitiesAsync().Result;

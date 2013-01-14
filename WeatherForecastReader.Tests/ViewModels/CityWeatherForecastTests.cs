@@ -14,6 +14,7 @@ using MoqIt = Moq.It;
 
 namespace WeatherForecastReader.Tests.CityProvider
 {
+    [Subject(typeof(CityWeatherForecastSource), "Retrieving weather forecasts for a City")]
     public class CityWeatherForecastTests
     {
         protected static CityWeatherForecastSource CityWeatherForecastSource;
@@ -24,10 +25,10 @@ namespace WeatherForecastReader.Tests.CityProvider
             {
                 mockWebTools = new Mock<IWebTools>();
                 Slough = StaticCityProvider.GetCurrentCities().First();
-                CityWeatherForecastSource = new CityWeatherForecastSource(Slough, mockWebTools.Object);
+                CityWeatherForecastSource = new CityWeatherForecastSource(mockWebTools.Object);
             };
 
-        private Because of = () =>  CityWeatherForecastSource.GetJsonAsync() ;
+        private Because of = () =>  CityWeatherForecastSource.GetJsonAsync(Slough) ;
 
         private ThenIt should_call_WebTools_DownloadString =
             () => mockWebTools.Verify(wb => wb.DownloadString(MoqIt.IsAny<string>()));

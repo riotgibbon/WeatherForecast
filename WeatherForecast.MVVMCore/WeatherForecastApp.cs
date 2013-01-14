@@ -2,8 +2,10 @@
 using Cirrious.MvvmCross.ExtensionMethods;
 using Cirrious.MvvmCross.Interfaces.ServiceProvider;
 using Cirrious.MvvmCross.Interfaces.ViewModels;
+using WeatherForecast.Core;
 using WeatherForecast.Core.Interfaces;
 using WeatherForecast.MVVMCore.Models;
+using WeatherForecast.MVVMCore.Service;
 
 
 namespace TwitterSearch.Core
@@ -22,6 +24,8 @@ namespace TwitterSearch.Core
         private void InitaliseServices()
         {
            this.RegisterServiceInstance<ICityProvider>(new StaticCityProvider());
+           this.RegisterServiceType<IWebTools, PortableWebTools>();
+           this.RegisterServiceInstance<ICityForecastProvider>(new CityForecastProvider(new PortableWebTools()));
         }
 
         private void InitialiseStartNavigation()

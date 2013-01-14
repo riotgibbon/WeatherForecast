@@ -13,6 +13,7 @@ using MoqIt = Moq.It;
 
 namespace WeatherForecastReader.Tests.CityProvider
 {
+    [Subject(typeof(CityForecastProvider),"Retrieving Forecasts for multiple Cities")]
     public class CityForecastProviderTests
     {
         protected static CityForecastProvider cityForecastProvider;
@@ -23,14 +24,14 @@ namespace WeatherForecastReader.Tests.CityProvider
         private Establish context = () =>
             {
                 mockWebTools = new Mock<IWebTools>();
-                MockWeatherUndergroundSource mockWeatherUndergroundSource = new MockWeatherUndergroundSource();
+                var mockWeatherUndergroundSource = new MockWeatherUndergroundSource();
                 mockWebTools.Setup(m => m.DownloadString(MoqIt.IsAny<string>()))
                             .Returns(mockWeatherUndergroundSource.GetJsonAsync());
                 cities = StaticCityProvider.GetCurrentCities();
-                cityForecastProvider = new CityForecastProvider(cities, mockWebTools.Object);
+                cityForecastProvider = new CityForecastProvider(mockWebTools.Object);
             };
 
-        private Because of = async () => cityForecasts = await cityForecastProvider.GetCityForecastsAsync();
+        private Because of = async () => cityForecasts = await cityForecastProvider.GetCityForecastsAsync(cities);
 
         private ThenIt should_call_WebTools_DownloadString_twice =
             () => mockWebTools.Verify(wb => wb.DownloadString(MoqIt.IsAny<string>()), Times.Exactly(2));

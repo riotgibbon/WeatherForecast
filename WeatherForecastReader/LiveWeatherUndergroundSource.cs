@@ -23,8 +23,8 @@ namespace WeatherForecastReader
 
             var webTools = new WebTools();
             var slough = new City {CountryCode = "UK", Name = "Slough"};
-            var forecast = new CityWeatherForecastSource(slough, webTools);
-            return await forecast.GetJsonAsync();
+            var forecast = new CityWeatherForecastSource(webTools);
+            return await forecast.GetJsonAsync(slough);
         }
 
         #endregion
