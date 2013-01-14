@@ -21,6 +21,7 @@ namespace WeatherForecast.MVVMCore.Models
                              {
                                  new City { CountryCode = "UK", Name = "Slough" },
                                  new City { CountryCode = "UK", Name = "Leeds" },
+                                 new City { CountryCode = "UK", Name = "Glasgow" },
                                  new City { CountryCode = "CN", Name = "Shanghai" }
                              };
             return cities;
