@@ -12,34 +12,45 @@ namespace WeatherForecast.Core.Domain.WUG
         public Forecast forecast;
     }
 
-    public class Features
-    {
-        public int forecast { get; set; }
-    }
-
     public class Response
     {
         public string version { get; set; }
         public string termsofService { get; set; }
         public Features features { get; set; }
+
+        public class Features
+        {
+            public int forecast { get; set; }
+        }
     }
 
-    public class Forecastday
+    public class Forecast
     {
-        public int period { get; set; }
-        public string icon { get; set; }
-        public string icon_url { get; set; }
-        public string title { get; set; }
-        public string fcttext { get; set; }
-        public string fcttext_metric { get; set; }
-        public string pop { get; set; }
+        public TxtForecast txt_forecast { get; set; }
+        public Simpleforecast simpleforecast { get; set; }
     }
+
 
     public class TxtForecast
     {
         public string date { get; set; }
         public List<Forecastday> forecastday { get; set; }
+
+        public class Forecastday
+        {
+            public int period { get; set; }
+            public string icon { get; set; }
+            public string icon_url { get; set; }
+            public string title { get; set; }
+            public string fcttext { get; set; }
+            public string fcttext_metric { get; set; }
+            public string pop { get; set; }
+        }
     }
+
+   
+
+
 
     public class Date
     {
@@ -154,11 +165,7 @@ namespace WeatherForecast.Core.Domain.WUG
         public List<Forecastday2> forecastday { get; set; }
     }
 
-    public class Forecast
-    {
-        public TxtForecast txt_forecast { get; set; }
-        public Simpleforecast simpleforecast { get; set; }
-    }
+
 
     public class RootObject
     {

@@ -6,5 +6,6 @@ namespace WeatherForecast.Core.Domain
     {
         public City City { get; set; }
         public Forecast Forecast { get; set; }
+        public TxtForecast.Forecastday Now { get; set; }
     }
 }

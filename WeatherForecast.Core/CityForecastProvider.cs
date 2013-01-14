@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using WeatherForecast.Core.Domain;
@@ -27,12 +28,12 @@ namespace WeatherForecast.Core
             var cityWeatherForecastSource = new CityWeatherForecastSource(webTools);
             foreach (var city in cities)
             {
-               
                 var forecastJson = await cityWeatherForecastSource.GetJsonAsync(city);
                 var response = JsonConvert.DeserializeObject<WUGResponse>(forecastJson);
 
-                cityForecasts.Add(new CityForecast {City = city, Forecast = response.forecast});
-                        
+                var cityForecast = new CityForecast {City = city, Forecast = response.forecast, Now = response.forecast.txt_forecast.forecastday.FirstOrDefault()};
+                cityForecasts.Add(cityForecast);
+                //yield return cityForecast;
             }
             return cityForecasts;
                  

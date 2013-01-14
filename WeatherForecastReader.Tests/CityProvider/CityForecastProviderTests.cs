@@ -42,5 +42,9 @@ namespace WeatherForecastReader.Tests.CityProvider
 
         private ThenIt first_forecast_should_be_for_Wednesday =
             () => cityForecasts.First().Forecast.txt_forecast.forecastday.First().title.ShouldEqual("Wednesday");
+
+        private ThenIt now_should_be_period_0 = () => cityForecasts.First().Now.period.ShouldEqual(0);
+        private ThenIt now_should_be_partly_cloudy = () => cityForecasts.First().Now.icon.ShouldEqual("partlycloudy");
+        
     }
 }

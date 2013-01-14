@@ -20,6 +20,7 @@ namespace WeatherForecast.MVVMCore.Models
             var cities = new List<City>
                              {
                                  new City { CountryCode = "UK", Name = "Slough" },
+                                 new City { CountryCode = "UK", Name = "Leeds" },
                                  new City { CountryCode = "CN", Name = "Shanghai" }
                              };
             return cities;
