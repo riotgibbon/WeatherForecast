@@ -33,7 +33,6 @@ namespace WeatherForecast.Core
 
                 var cityForecast = new CityForecast {City = city, Forecast = response.forecast, Now = response.forecast.txt_forecast.forecastday.FirstOrDefault()};
                 cityForecasts.Add(cityForecast);
-                //yield return cityForecast;
             }
             return cityForecasts;
                  

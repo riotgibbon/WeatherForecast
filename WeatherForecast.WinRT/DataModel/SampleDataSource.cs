@@ -237,7 +237,10 @@ namespace WeatherForecast.WinRT.Data
         {
             get { return new ObservableCollection<City>(StaticCityProvider.GetCurrentCities()); }
         }
-
+        public List<CityForecast> MockCityForecasts
+        {
+            get { return StaticCityProvider.MockCityForecasts(); }
+        }
         public static IEnumerable<SampleDataGroup> GetGroups(string uniqueId)
         {
             if (!uniqueId.Equals("AllGroups")) throw new ArgumentException("Only 'AllGroups' is supported as a collection of groups");

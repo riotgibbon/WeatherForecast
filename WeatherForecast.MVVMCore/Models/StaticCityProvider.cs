@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherForecast.Core;
 using WeatherForecast.Core.Domain;
+using WeatherForecast.Core.Domain.WUG;
 using WeatherForecast.Core.Interfaces;
 
 namespace WeatherForecast.MVVMCore.Models
@@ -24,6 +26,32 @@ namespace WeatherForecast.MVVMCore.Models
                                  new City { CountryCode = "CN", Name = "Shanghai" }
                              };
             return cities;
+        }
+
+        public static List<CityForecast> MockCityForecasts()
+        {
+            var forecasts = new List<CityForecast>();
+            forecasts.Add(new CityForecast
+                {
+                    City = GetCurrentCities()[0],
+                    Now = new TxtForecast.Forecastday
+                        {
+                            icon_url = "Assets/partlycloudy.gif",
+                            fcttext_metric = "Partly cloudy. High of 4C with a windchill as low as -4C. Breezy. Winds from the NNW at 10 to 25 km/h."
+                        }
+                });
+            return forecasts;
+            //var cityForecastProvider = new CityForecastProvider(new StaticWebTool());
+            //return cityForecastProvider.GetCityForecastsAsync(GetCurrentCities()).Result;
+        }
+
+        class StaticWebTool:IWebTools
+        {
+
+            public Task<string> DownloadString(string sourceUrl)
+            {
+                return new MockWeatherUndergroundSource().GetJsonAsync();
+            }
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Cirrious.MvvmCross.Application;
+using Cirrious.MvvmCross.Interfaces.ServiceProvider;
 using Cirrious.MvvmCross.WinRT.Platform;
 using TwitterSearch.Core;
 using Windows.UI.Xaml.Controls;
+using Cirrious.MvvmCross.ExtensionMethods;
 
 namespace WeatherForecast.WinRT
 {
@@ -21,7 +23,11 @@ namespace WeatherForecast.WinRT
             return base.CreateIocProvider();
         }
 
-
+        protected override void InitializeLastChance()
+        {
+            
+            base.InitializeLastChance();
+        }
         protected override MvxApplication CreateApp()
         {
             _app = new WeatherForecastApp();
