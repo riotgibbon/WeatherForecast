@@ -20,7 +20,7 @@ namespace TwitterSearch.Core
             InitialiseStartNavigation();
             InitialisePlugIns();
         }
-
+        
         private void InitaliseServices()
         {
            this.RegisterServiceInstance<ICityProvider>(new StaticCityProvider());

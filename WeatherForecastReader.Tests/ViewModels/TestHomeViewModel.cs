@@ -15,6 +15,7 @@ using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Interfaces;
 using WeatherForecast.MVVMCore.Models;
 using WeatherForecast.MVVMCore.ViewModels;
+using WeatherForecastReader.Tests.Data;
 using ThenIt = Machine.Specifications.It;
 using MoqIt = Moq.It;
 
@@ -47,7 +48,7 @@ namespace WeatherForecastReader.Tests.ViewModels
 
         private Establish context = () =>
                                         {
-                                            citiesToReturn = StaticCityProvider.GetCurrentCities();
+                                            citiesToReturn = MockCityProvider.GetCurrentCities();
                                             mockCityProvider = new Mock<ICityProvider>();
                                             mockCityProvider.Setup(cp => cp.GetCurrentCitiesAsync())
                                                             .Returns(Task.Run(() => citiesToReturn));

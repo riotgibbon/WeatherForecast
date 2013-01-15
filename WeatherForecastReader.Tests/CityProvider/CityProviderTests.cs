@@ -6,26 +6,27 @@ using System.Threading.Tasks;
 using Machine.Specifications;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.MVVMCore.Models;
+using WeatherForecastReader.Tests.Data;
 
 namespace WeatherForecastReader.Tests.CityProvider
 {
     public class WithStaticCityProvider
     {
         protected static List<City> cities;
-        protected static StaticCityProvider staticCityProvider;
+        protected static MockCityProvider MockCityProvider;
 
         private Establish context = () =>
                                         {
-                                            staticCityProvider = new StaticCityProvider();
+                                            MockCityProvider = new MockCityProvider();
                                         };
     }
 
     public class WithSyncCities : WithStaticCityProvider
     {
-        Because of = () => cities = StaticCityProvider.GetCurrentCities();
+        Because of = () => cities = MockCityProvider.GetCurrentCities();
     }
 
-    [Subject(typeof(StaticCityProvider), "When reading cities sync")]
+    [Subject(typeof(MockCityProvider), "When reading cities sync")]
     public class WhenReadingCitiesDirectly : WithSyncCities
     {
         private It should_have_2_cities = () => cities.Count.ShouldEqual(2);
@@ -36,10 +37,10 @@ namespace WeatherForecastReader.Tests.CityProvider
     }
 
 
-    [Subject(typeof(StaticCityProvider), "When reading cities async")]
+    [Subject(typeof(MockCityProvider), "When reading cities async")]
     public class WhenReadingCitiesAsync : WithStaticCityProvider
     {
-        Because of = () => cities = staticCityProvider.GetCurrentCitiesAsync().Result;
+        Because of = () => cities = MockCityProvider.GetCurrentCitiesAsync().Result;
         private It should_have_2_cities = () => cities.Count.ShouldEqual(2);
     }
 }

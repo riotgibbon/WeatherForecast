@@ -15,6 +15,13 @@ namespace WeatherForecast.WinRT
         {
         }
 
+
+        protected override Cirrious.MvvmCross.Interfaces.IoC.IMvxIoCProvider CreateIocProvider()
+        {
+            return base.CreateIocProvider();
+        }
+
+
         protected override MvxApplication CreateApp()
         {
             _app = new WeatherForecastApp();

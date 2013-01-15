@@ -9,6 +9,7 @@ using WeatherForecast.Core;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Interfaces;
 using WeatherForecast.MVVMCore.Models;
+using WeatherForecastReader.Tests.Data;
 using ThenIt = Machine.Specifications.It;
 using MoqIt = Moq.It;
 
@@ -24,7 +25,7 @@ namespace WeatherForecastReader.Tests.CityProvider
         private Establish context = () =>
             {
                 mockWebTools = new Mock<IWebTools>();
-                Slough = StaticCityProvider.GetCurrentCities().First();
+                Slough = MockCityProvider.GetCurrentCities().First();
                 CityWeatherForecastSource = new CityWeatherForecastSource(mockWebTools.Object);
             };
 

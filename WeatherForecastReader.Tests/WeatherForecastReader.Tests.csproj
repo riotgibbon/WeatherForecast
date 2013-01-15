@@ -66,10 +66,10 @@
   <ItemGroup>
     <Compile Include="CityProvider\CityForecastProviderTests.cs" />
     <Compile Include="CityProvider\CityProviderTests.cs" />
+    <Compile Include="Data\MockCityProvider.cs" />
     <Compile Include="ViewModels\CityWeatherForecastTests.cs" />
     <Compile Include="ViewModels\TestHomeViewModel.cs" />
     <Compile Include="WhenReadingLiveJsonForecastData.cs" />
-    <Compile Include="MockWeatherUndergroundSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WhenReadingJsonForecastData.cs" />
   </ItemGroup>

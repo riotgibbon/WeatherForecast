@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Interfaces;
 
-namespace WeatherForecast.MVVMCore.Models
+namespace WeatherForecastReader.Tests.Data
 {
-    public class StaticCityProvider : ICityProvider 
+    public class MockCityProvider : ICityProvider 
     {
         public Task<List<City>> GetCurrentCitiesAsync()
         {
@@ -20,7 +17,6 @@ namespace WeatherForecast.MVVMCore.Models
             var cities = new List<City>
                              {
                                  new City { CountryCode = "UK", Name = "Slough" },
-                                 new City { CountryCode = "ES", Name = "Madrid" },
                                  new City { CountryCode = "CN", Name = "Shanghai" }
                              };
             return cities;

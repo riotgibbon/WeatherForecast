@@ -8,6 +8,7 @@ using WeatherForecast.Core;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Interfaces;
 using WeatherForecast.MVVMCore.Models;
+using WeatherForecastReader.Tests.Data;
 using ThenIt = Machine.Specifications.It;
 using MoqIt = Moq.It;
 
@@ -27,7 +28,7 @@ namespace WeatherForecastReader.Tests.CityProvider
                 var mockWeatherUndergroundSource = new MockWeatherUndergroundSource();
                 mockWebTools.Setup(m => m.DownloadString(MoqIt.IsAny<string>()))
                             .Returns(mockWeatherUndergroundSource.GetJsonAsync());
-                cities = StaticCityProvider.GetCurrentCities();
+                cities = MockCityProvider.GetCurrentCities();
                 cityForecastProvider = new CityForecastProvider(mockWebTools.Object);
             };
 

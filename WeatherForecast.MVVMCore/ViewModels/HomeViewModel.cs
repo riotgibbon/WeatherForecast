@@ -12,6 +12,7 @@ namespace WeatherForecast.MVVMCore.ViewModels
     {
         private List<City> _cities;
         private List<CityForecast> _cityForecasts;
+        private bool _isBusy;
 
         public List<City> Cities
         {
@@ -25,6 +26,16 @@ namespace WeatherForecast.MVVMCore.ViewModels
             }
         }
 
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set 
+            { 
+                _isBusy = value;
+                RaisePropertyChanged(() => IsBusy);
+            }
+        }
+
         public HomeViewModel()
         {
             LoadCities();
@@ -32,9 +43,10 @@ namespace WeatherForecast.MVVMCore.ViewModels
 
         private async void LoadCities()
         {
+            IsBusy = true;
            Cities = await CityProvider.GetCurrentCitiesAsync();
            CityForecasts = await CityForecastProvider.GetCityForecastsAsync(Cities);
-
+           IsBusy = false;
         }
 
         private ICityProvider CityProvider
