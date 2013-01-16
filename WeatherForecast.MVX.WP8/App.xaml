@@ -1,0 +1,48 @@
+﻿<Application
+    x:Class="WeatherForecast.MVX.WP8.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" 
+    xmlns:nativeConverters="clr-namespace:WeatherForecast.MVX.WP8.NativeConverters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+mc:Ignorable="d"
+    xmlns:models="clr-namespace:WeatherForecast.MVVMCore.Models;assembly=WeatherForecast.MVVMCore">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <nativeConverters:NativeVisibilityConverter x:Key="Visibility"/>
+        <local:LocalizedStrings xmlns:local="clr-namespace:WeatherForecast.MVX.WP8" x:Key="LocalizedStrings"/>
+
+        <CollectionViewSource
+            x:Name="itemsViewSource"
+            Source="{Binding CityForecasts}"
+            
+            d:DesignSource="{Binding MockCityForecasts, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=models:StaticCityProvider}}"/>
+        <DataTemplate x:Key="CityTemplate">
+
+
+            <TextBlock VerticalAlignment="Top" Text="{Binding Name}"  Height="24" Margin="15,0,15,0"/>
+
+        </DataTemplate>
+
+        <DataTemplate x:Key="ForecastCityTemplate">
+            <StackPanel>
+                <Image Source="{Binding Now.icon_url}" Width="25" Height="25"/>
+                <TextBlock  Text="{Binding City.Name}"  />
+                <TextBlock Text="{Binding Now.fcttext_metric}" TextWrapping="Wrap" Margin="15,0,15,10"/>
+
+            </StackPanel>
+        </DataTemplate>
+
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService
+            Launching="Application_Launching" Closing="Application_Closing"
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

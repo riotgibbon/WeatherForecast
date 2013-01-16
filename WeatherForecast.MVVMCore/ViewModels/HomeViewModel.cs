@@ -28,7 +28,10 @@ namespace WeatherForecast.MVVMCore.ViewModels
 
         public bool IsBusy
         {
-            get { return _isBusy; }
+            get
+            {
+                return _isBusy;
+            }
             set 
             { 
                 _isBusy = value;
@@ -60,7 +63,10 @@ namespace WeatherForecast.MVVMCore.ViewModels
 
         public List<CityForecast> CityForecasts
         {
-            get { return _cityForecasts; }
+            get
+            {
+                return _cityForecasts;
+            }
             set
             {
                 _cityForecasts = value;

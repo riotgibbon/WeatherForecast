@@ -7,8 +7,7 @@ using WeatherForecast.Core.Interfaces;
 using WeatherForecast.MVVMCore.Models;
 using WeatherForecast.MVVMCore.Service;
 
-
-namespace TwitterSearch.Core
+namespace WeatherForecast.MVVMCore
 {
     public class WeatherForecastApp
         : MvxApplication

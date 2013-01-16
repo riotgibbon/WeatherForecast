@@ -10,10 +10,12 @@ namespace WeatherForecast.MVVMCore.Service
 		public Task<string> DownloadString(string sourceUrl)
 		{
             var request = (HttpWebRequest)WebRequest.Create(sourceUrl);
-            request.ContentType = "application/json";
+            //request.ContentType = "application/json";
+		    request.Method = "GET";
             Task<WebResponse> task = Task.Factory.FromAsync(
                 request.BeginGetResponse,
-                asyncResult => request.EndGetResponse(asyncResult),
+                asyncResult => 
+                    request.EndGetResponse(asyncResult),
                 null);
             return task.ContinueWith(t => ReadStreamFromResponse(t.Result)); 
 		}

@@ -2,8 +2,7 @@
 using Cirrious.MvvmCross.ViewModels;
 using WeatherForecast.MVVMCore.ViewModels;
 
-
-namespace TwitterSearch.Core
+namespace WeatherForecast.MVVMCore
 {
     public class StartNavigation
         : MvxApplicationObject

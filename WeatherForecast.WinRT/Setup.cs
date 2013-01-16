@@ -1,7 +1,7 @@
 ﻿using Cirrious.MvvmCross.Application;
 using Cirrious.MvvmCross.Interfaces.ServiceProvider;
 using Cirrious.MvvmCross.WinRT.Platform;
-using TwitterSearch.Core;
+using WeatherForecast.MVVMCore;
 using Windows.UI.Xaml.Controls;
 using Cirrious.MvvmCross.ExtensionMethods;
 
