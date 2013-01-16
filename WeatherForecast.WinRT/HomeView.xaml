@@ -1,23 +1,26 @@
-﻿<common:LayoutAwarePage
+﻿<common2:LayoutAwarePage
     x:Name="pageRoot"
-    x:Class="WeatherForecast.WinRT.HomeView"
+    x:Class="WeatherForecast.MVX.WinRT.HomeView"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WeatherForecast.WinRT"
-    xmlns:data="using:WeatherForecast.WinRT.Data"
     xmlns:common="using:WeatherForecast.WinRT.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common2="using:WeatherForecast.MVX.WinRT.Common" xmlns:data="using:WeatherForecast.MVX.WinRT.DataModel"
     mc:Ignorable="d">
 
-    <common:LayoutAwarePage.Resources>
+    <common2:LayoutAwarePage.Resources>
 
-        <common:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <common2:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
             
         <!-- Collection of items displayed by this page -->
-        
+        <CollectionViewSource
+            x:Name="itemsViewSource"
+            Source="{Binding CityForecasts}"
+            d:Source="{Binding MockCityForecasts, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=data:SampleDataSource}}"/>
         <DataTemplate x:Key="Standard250x250ItemTemplate">
             <Grid HorizontalAlignment="Left" Width="250" Height="250">
 
@@ -31,7 +34,7 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
-    </common:LayoutAwarePage.Resources>
+    </common2:LayoutAwarePage.Resources>
 
     <!--
         This grid acts as a root panel for the page that defines two rows:
@@ -130,4 +133,4 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
     </Grid>
-</common:LayoutAwarePage>
+</common2:LayoutAwarePage>

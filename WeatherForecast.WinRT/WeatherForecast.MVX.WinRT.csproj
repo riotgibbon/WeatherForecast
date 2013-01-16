@@ -7,8 +7,8 @@
     <ProjectGuid>{BE0D1F40-499C-4E7E-95D5-32478E01078C}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WeatherForecast.WinRT</RootNamespace>
-    <AssemblyName>WeatherForecast.WinRT</AssemblyName>
+    <RootNamespace>WeatherForecast.MVX.WinRT</RootNamespace>
+    <AssemblyName>WeatherForecast.MVX.WinRT</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

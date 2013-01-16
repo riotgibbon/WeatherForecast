@@ -1,9 +1,9 @@
-﻿using WeatherForecast.WinRT.Data;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using WeatherForecast.MVX.WinRT.Common;
+using WeatherForecast.MVX.WinRT.DataModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
@@ -24,7 +24,7 @@ namespace WeatherForecast.WinRT
     /// A page that displays a group title, a list of items within the group, and details for the
     /// currently selected item.
     /// </summary>
-    public sealed partial class SplitPage : WeatherForecast.WinRT.Common.LayoutAwarePage
+    public sealed partial class SplitPage : LayoutAwarePage
     {
         public SplitPage()
         {

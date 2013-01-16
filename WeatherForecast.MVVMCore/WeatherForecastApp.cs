@@ -19,12 +19,15 @@ namespace WeatherForecast.MVVMCore
             InitialiseStartNavigation();
             InitialisePlugIns();
         }
+
+        
         
         private void InitaliseServices()
         {
-           this.RegisterServiceInstance<ICityProvider>(new StaticCityProvider());
+
+            this.RegisterServiceType<ICityProvider,StaticCityProvider>();
            this.RegisterServiceType<IWebTools, PortableWebTools>();
-           this.RegisterServiceInstance<ICityForecastProvider>(new CityForecastProvider(new PortableWebTools()));
+           this.RegisterServiceType<ICityForecastProvider, CityForecastProvider>();
         }
 
         private void InitialiseStartNavigation()

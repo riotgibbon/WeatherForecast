@@ -13,6 +13,7 @@ using Moq;
 using WeatherForecast.Core;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Interfaces;
+using WeatherForecast.MVVMCore;
 using WeatherForecast.MVVMCore.Models;
 using WeatherForecast.MVVMCore.ViewModels;
 using WeatherForecastReader.Tests.Data;
@@ -28,7 +29,7 @@ namespace WeatherForecastReader.Tests.ViewModels
         private Establish context = () =>
                                         {
                                             MvxSingleton.ClearAllSingletons();
-                                            IoC = new MvxSimpleIoCServiceProvider();
+                                            IoC = new MvxAutofacIoCServiceProvider();
                                             var serviceProvider = new MvxServiceProvider(IoC);
                                             IoC.RegisterServiceInstance<IMvxServiceProviderRegistry>(serviceProvider);
                                             IoC.RegisterServiceInstance<IMvxServiceProvider>(serviceProvider);

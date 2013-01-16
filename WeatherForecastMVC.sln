@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.Core", "Wea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.MVVMCore", "WeatherForecast.MVVMCore\WeatherForecast.MVVMCore.csproj", "{F5D7E9DF-D0AB-4B7B-949C-4F42AD525C11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.WinRT", "WeatherForecast.WinRT\WeatherForecast.WinRT.csproj", "{BE0D1F40-499C-4E7E-95D5-32478E01078C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.MVX.WinRT", "WeatherForecast.WinRT\WeatherForecast.MVX.WinRT.csproj", "{BE0D1F40-499C-4E7E-95D5-32478E01078C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Netduino", "Netduino", "{A445F556-5206-4C16-A3EB-59DEBF9D4E88}"
 EndProject

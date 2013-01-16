@@ -14,6 +14,10 @@ namespace WeatherForecast.MVX.WP8
         {
         }
 
+        protected override Cirrious.MvvmCross.Interfaces.IoC.IMvxIoCProvider CreateIocProvider()
+        {
+            return new MvxAutofacIoCServiceProvider();
+        }
         protected override MvxApplication CreateApp()
         {
             return new WeatherForecastApp();

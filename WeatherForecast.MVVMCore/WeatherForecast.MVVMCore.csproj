@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Models\MockWeatherUndergroundSource.cs" />
     <Compile Include="Models\StaticCityProvider.cs" />
+    <Compile Include="MvxAutofacIoCProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\PortableWebTools.cs" />
     <Compile Include="StartNavigation.cs" />

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherForecast.MVX.WinRT.Common;
 using Windows.ApplicationModel;
 using Windows.Storage;
 using Windows.Storage.Streams;

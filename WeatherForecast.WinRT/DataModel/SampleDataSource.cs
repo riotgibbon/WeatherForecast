@@ -2,14 +2,9 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.MVVMCore.Models;
-using Windows.ApplicationModel.Resources.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml.Data;
+using WeatherForecast.MVX.WinRT.Common;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Collections.Specialized;
@@ -21,14 +16,14 @@ using System.Collections.Specialized;
 // Applications may use this model as a starting point and build on it, or discard it entirely and
 // replace it with something appropriate to their needs.
 
-namespace WeatherForecast.WinRT.Data
+namespace WeatherForecast.MVX.WinRT.DataModel
 {
     /// <summary>
     /// Base class for <see cref="SampleDataItem"/> and <see cref="SampleDataGroup"/> that
     /// defines properties common to both.
     /// </summary>
     [Windows.Foundation.Metadata.WebHostHidden]
-    public abstract class SampleDataCommon : WeatherForecast.WinRT.Common.BindableBase
+    public abstract class SampleDataCommon : BindableBase
     {
         private static Uri _baseUri = new Uri("ms-appx:///");
 

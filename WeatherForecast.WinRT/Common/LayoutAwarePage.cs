@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using Windows.Foundation;
+using WeatherForecast.WinRT.Common;
 using Windows.Foundation.Collections;
 using Windows.System;
 using Windows.UI.Core;
@@ -11,7 +10,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace WeatherForecast.WinRT.Common
+namespace WeatherForecast.MVX.WinRT.Common
 {
     /// <summary>
     /// Typical implementation of Page that provides several important conveniences:

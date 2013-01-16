@@ -1,11 +1,9 @@
 ﻿using Cirrious.MvvmCross.Application;
-using Cirrious.MvvmCross.Interfaces.ServiceProvider;
 using Cirrious.MvvmCross.WinRT.Platform;
 using WeatherForecast.MVVMCore;
 using Windows.UI.Xaml.Controls;
-using Cirrious.MvvmCross.ExtensionMethods;
 
-namespace WeatherForecast.WinRT
+namespace WeatherForecast.MVX.WinRT
 {
     public class Setup
         : MvxBaseWinRTSetup
@@ -20,14 +18,10 @@ namespace WeatherForecast.WinRT
 
         protected override Cirrious.MvvmCross.Interfaces.IoC.IMvxIoCProvider CreateIocProvider()
         {
-            return base.CreateIocProvider();
+            return new MvxAutofacIoCServiceProvider();
         }
 
-        protected override void InitializeLastChance()
-        {
-            
-            base.InitializeLastChance();
-        }
+        
         protected override MvxApplication CreateApp()
         {
             _app = new WeatherForecastApp();

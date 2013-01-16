@@ -15,17 +15,27 @@ namespace WeatherForecast.Core
 
     public class CityForecastProvider : ICityForecastProvider
     {
-        private IWebTools webTools;
+
+        private IWebTools _webTools;
+
+      
+
         public CityForecastProvider( IWebTools webTools)
         {
-            this.webTools = webTools;
+            _webTools = webTools;
+        }
+
+        public IWebTools WebTools
+        {
+            get { return _webTools; }
+            set { _webTools = value; }
         }
 
         public async Task<List<CityForecast>> GetCityForecastsAsync(List<City> cities)
         {
             
             var cityForecasts = new List<CityForecast>();
-            var cityWeatherForecastSource = new CityWeatherForecastSource(webTools);
+            var cityWeatherForecastSource = new CityWeatherForecastSource(_webTools);
             foreach (var city in cities)
             {
                 var forecastJson = await cityWeatherForecastSource.GetJsonAsync(city);
