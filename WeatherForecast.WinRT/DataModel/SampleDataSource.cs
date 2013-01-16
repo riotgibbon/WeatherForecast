@@ -239,7 +239,7 @@ namespace WeatherForecast.WinRT.Data
         }
         public List<CityForecast> MockCityForecasts
         {
-            get { return StaticCityProvider.MockCityForecasts(); }
+            get { return StaticCityProvider.MockCityForecasts; }
         }
         public static IEnumerable<SampleDataGroup> GetGroups(string uniqueId)
         {

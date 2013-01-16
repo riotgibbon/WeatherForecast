@@ -29,9 +29,12 @@ mc:Ignorable="d"
 
         <DataTemplate x:Key="ForecastCityTemplate">
             <StackPanel>
-                <Image Source="{Binding Now.icon_url}" Width="25" Height="25"/>
-                <TextBlock  Text="{Binding City.Name}"  />
-                <TextBlock Text="{Binding Now.fcttext_metric}" TextWrapping="Wrap" Margin="15,0,15,10"/>
+                <Grid  Margin="15,0,15,10" Height="73" Width="107">
+                    <Image  Source="{Binding Now.icon_url}" Height="50" Width="50"  Margin="0,0,57,23"/>
+                    <TextBlock  Text="{Binding City.Name}" FontSize="36" FontWeight="Bold" Foreground="#FF0AE500" Margin="55,10,-303,0"  />
+                </Grid>
+               
+               
 
             </StackPanel>
         </DataTemplate>

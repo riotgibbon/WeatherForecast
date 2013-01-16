@@ -13,21 +13,33 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="False"
      xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:common="using:WeatherForecast.MVX.WP8.Common">
+    xmlns:common="using:WeatherForecast.MVX.WP8.Common"
+    xmlns:models="clr-namespace:WeatherForecast.MVVMCore.Models;assembly=WeatherForecast.MVVMCore">
 
+     <UserControl.Resources>
+        <CollectionViewSource
+            x:Name="CityForecastViewSource"
+            Source="{Binding CityForecasts}"
+            d:Source="{Binding MockCityForecasts, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=models:StaticCityProvider}}"/>
+    </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
         
         
         <toolkit:PerformanceProgressBar
                     IsIndeterminate="True"
                     Width="400"
-                    VerticalAlignment="Top"                   
+                    Height="20"
+                    VerticalAlignment="Center"                  
                     Visibility="{Binding IsBusy,Converter={StaticResource Visibility}}"
                     />
+       <StackPanel>
         <ListBox
-                       ItemsSource="{Binding CityForecasts}"
+                     SelectedItem="{Binding Path=SelectedCityForecast, Mode=TwoWay}"
+                       ItemsSource="{Binding Source={StaticResource CityForecastViewSource}}"
                         ItemTemplate="{StaticResource ForecastCityTemplate}">
         </ListBox>
+        <TextBlock  Text="{Binding SelectedCityForecast.Now.fcttext_metric}" TextWrapping="Wrap"></TextBlock>
+        </StackPanel>
     </Grid>
 
 </Views:BaseHomeView>

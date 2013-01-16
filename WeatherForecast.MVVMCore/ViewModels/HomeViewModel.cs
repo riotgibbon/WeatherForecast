@@ -13,6 +13,7 @@ namespace WeatherForecast.MVVMCore.ViewModels
         private List<City> _cities;
         private List<CityForecast> _cityForecasts;
         private bool _isBusy;
+        private CityForecast _selectedCityForecast;
 
         public List<City> Cities
         {
@@ -23,6 +24,16 @@ namespace WeatherForecast.MVVMCore.ViewModels
             set { 
                 _cities = value;
                 RaisePropertyChanged("Cities");
+            }
+        }
+
+        public CityForecast SelectedCityForecast
+        {
+            get { return _selectedCityForecast; }
+            set
+            {
+                _selectedCityForecast = value;
+                RaisePropertyChanged(()=> SelectedCityForecast);
             }
         }
 
