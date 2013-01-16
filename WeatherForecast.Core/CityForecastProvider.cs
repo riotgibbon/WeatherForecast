@@ -25,11 +25,7 @@ namespace WeatherForecast.Core
             _webTools = webTools;
         }
 
-        public IWebTools WebTools
-        {
-            get { return _webTools; }
-            set { _webTools = value; }
-        }
+
 
         public async Task<List<CityForecast>> GetCityForecastsAsync(List<City> cities)
         {
