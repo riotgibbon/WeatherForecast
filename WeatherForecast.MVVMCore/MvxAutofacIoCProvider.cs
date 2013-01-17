@@ -83,20 +83,21 @@ namespace WeatherForecast.MVVMCore
 
         public void RegisterServiceType<T, T1>()
         {
-            var thisBuilder = new ContainerBuilder();
-            thisBuilder.RegisterType<T1>().As<T>();
-            thisBuilder.Update(container);
+            UpdateContainer(cb => cb.RegisterType<T1>().As<T>());
         }
 
         public void RegisterServiceInstance<T>(T theObject) where T : class
         {
-            var thisBuilder = new ContainerBuilder();
-            thisBuilder.RegisterInstance(theObject).As<T>();
-            thisBuilder.Update(container);
+            UpdateContainer(cb=>cb.RegisterInstance(theObject).As<T>());
         }
 
 
-       
+       public void UpdateContainer(Action<ContainerBuilder> builderAction)
+       {
+           var thisBuilder = new ContainerBuilder();
+           builderAction(thisBuilder);
+           thisBuilder.Update(container);
+       }
         
     }
 }
