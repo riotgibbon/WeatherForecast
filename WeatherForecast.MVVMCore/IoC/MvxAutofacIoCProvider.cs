@@ -1,12 +1,11 @@
-﻿using System;
+using System;
 using Autofac;
-
 using Cirrious.MvvmCross.Core;
 using Cirrious.MvvmCross.Interfaces.IoC;
 
-namespace WeatherForecast.MVVMCore
+namespace WeatherForecast.MVVMCore.IoC
 {
-    public class MvxAutofacIoCServiceProvider: IMvxIoCProvider
+    public class MvxAutofacIoCServiceProvider : IMvxIoCProvider
     {
         public MvxAutofacIoCServiceProvider()
         {
@@ -48,16 +47,13 @@ namespace WeatherForecast.MVVMCore
         }
     }
 
-
     public class MvxAutofacIoCContainer : MvxSingleton<MvxAutofacIoCContainer>
     {
         ContainerBuilder builder = new ContainerBuilder();
         private IContainer container;
         public static void Initialise()
         {
-            // create a new ioc containers
             var ioc = new MvxAutofacIoCContainer();
-            
         }
 
         public MvxAutofacIoCContainer()
@@ -67,13 +63,12 @@ namespace WeatherForecast.MVVMCore
 
         public bool CanResolve<T>()
         {
-                return container.IsRegistered<T>();
+            return container.IsRegistered<T>();
         }
 
         public T Resolve<T>()
         {
-            var resolve = container.Resolve<T>();
-            return resolve;
+            return container.Resolve<T>();
         }
 
         public bool TryResolve<T>(out T service)
@@ -88,16 +83,15 @@ namespace WeatherForecast.MVVMCore
 
         public void RegisterServiceInstance<T>(T theObject) where T : class
         {
-            UpdateContainer(cb=>cb.RegisterInstance(theObject).As<T>());
+            UpdateContainer(cb => cb.RegisterInstance(theObject).As<T>());
         }
 
+        public void UpdateContainer(Action<ContainerBuilder> builderAction)
+        {
+            var thisBuilder = new ContainerBuilder();
+            builderAction(thisBuilder);
+            thisBuilder.Update(container);
+        }
 
-       public void UpdateContainer(Action<ContainerBuilder> builderAction)
-       {
-           var thisBuilder = new ContainerBuilder();
-           builderAction(thisBuilder);
-           thisBuilder.Update(container);
-       }
-        
     }
 }

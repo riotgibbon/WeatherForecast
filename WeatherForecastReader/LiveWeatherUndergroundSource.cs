@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherForecast.Core;
 using WeatherForecast.Core.Domain;
+using WeatherForecast.Core.Services;
 
 namespace WeatherForecastReader
 {

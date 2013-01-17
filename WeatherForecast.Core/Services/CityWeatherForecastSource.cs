@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Interfaces;
 
-namespace WeatherForecast.Core
+namespace WeatherForecast.Core.Services
 {
     public class CityWeatherForecastSource
     {

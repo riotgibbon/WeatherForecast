@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WeatherForecast.Core.Domain.WUG;
 using Newtonsoft.Json;
+using WeatherForecast.Core.Domain.WUG;
 
-
-namespace WeatherForecast.Core
+namespace WeatherForecast.Core.Services
 {
     public class WeatherUndergroundReader
     {

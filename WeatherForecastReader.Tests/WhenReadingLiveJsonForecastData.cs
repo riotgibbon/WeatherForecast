@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Machine.Specifications;
 using WeatherForecast.Core;
+using WeatherForecast.Core.Services;
 
 namespace WeatherForecastReader.Tests
 {

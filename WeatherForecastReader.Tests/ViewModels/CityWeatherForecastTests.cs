@@ -8,6 +8,7 @@ using Moq;
 using WeatherForecast.Core;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Interfaces;
+using WeatherForecast.Core.Services;
 using WeatherForecast.MVVMCore.Models;
 using WeatherForecastReader.Tests.Data;
 using ThenIt = Machine.Specifications.It;

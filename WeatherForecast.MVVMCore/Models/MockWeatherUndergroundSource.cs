@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using WeatherForecast.Core;
+using WeatherForecast.Core.Services;
 
 namespace WeatherForecast.MVVMCore.Models
 {

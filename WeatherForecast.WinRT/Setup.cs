@@ -1,6 +1,7 @@
 ﻿using Cirrious.MvvmCross.Application;
 using Cirrious.MvvmCross.WinRT.Platform;
 using WeatherForecast.MVVMCore;
+using WeatherForecast.MVVMCore.IoC;
 using Windows.UI.Xaml.Controls;
 
 namespace WeatherForecast.MVX.WinRT

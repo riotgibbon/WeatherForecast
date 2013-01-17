@@ -6,7 +6,7 @@ using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Domain.WUG;
 using WeatherForecast.Core.Interfaces;
 
-namespace WeatherForecast.Core
+namespace WeatherForecast.Core.Services
 {
     public interface ICityForecastProvider
     {

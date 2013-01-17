@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace WeatherForecast.Core
+namespace WeatherForecast.Core.Services
 {
     public interface WeatherUndergroundSource
     {

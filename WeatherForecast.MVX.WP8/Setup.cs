@@ -3,6 +3,7 @@ using Cirrious.MvvmCross.Platform;
 using Cirrious.MvvmCross.WindowsPhone.Platform;
 using Microsoft.Phone.Controls;
 using WeatherForecast.MVVMCore;
+using WeatherForecast.MVVMCore.IoC;
 
 namespace WeatherForecast.MVX.WP8
 {

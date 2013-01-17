@@ -4,6 +4,7 @@ using Cirrious.MvvmCross.Interfaces.ServiceProvider;
 using Cirrious.MvvmCross.Interfaces.ViewModels;
 using WeatherForecast.Core;
 using WeatherForecast.Core.Interfaces;
+using WeatherForecast.Core.Services;
 using WeatherForecast.MVVMCore.Models;
 using WeatherForecast.MVVMCore.Service;
 

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using WeatherForecast.Core;
+using WeatherForecast.Core.Services;
 using WeatherForecastReader;
 
 namespace WeatherForecastMVC.Controllers
