@@ -8,7 +8,8 @@
     xmlns:common="using:WeatherForecast.WinRT.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:common2="using:WeatherForecast.MVX.WinRT.Common" xmlns:data="using:WeatherForecast.MVX.WinRT.DataModel"
+    xmlns:common2="using:WeatherForecast.MVX.WinRT.Common" 
+    xmlns:data="using:WeatherForecast.MVX.WinRT.DataModel" xmlns:viewModels="using:WeatherForecast.MVVMCore.ViewModels"
     mc:Ignorable="d">
 
     <common2:LayoutAwarePage.Resources>
@@ -25,13 +26,13 @@
             <Grid HorizontalAlignment="Left" Width="250" Height="250"  >
 
                 <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
-                    <Image Source="{Binding Now.icon_url}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                    <Image Source="{Binding Now.icon_url}" Height="50" Width="50" VerticalAlignment="Top" AutomationProperties.Name="{Binding Title}"/>
                 </Border>
 
                 <TextBlock VerticalAlignment="Top" Text="{Binding City.Name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="24" Margin="15,0,15,0"/>
                 <StackPanel VerticalAlignment="Bottom"  Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
                     <TextBlock VerticalAlignment="Bottom"   Text="{Binding Now.fcttext_metric}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="Wrap" Margin="15,0,15,10"/>
-                    <Button Command="{Binding SearchCommand}" CommandParameter="{Binding}" Content="{Binding City.Name}"></Button>
+                    <Button Command="{Binding DataContext.SearchCommand, RelativeSource={RelativeSource TemplatedParent}}"  CommandParameter="{Binding}" Content="{Binding City.Name}"></Button>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -59,9 +60,9 @@
             SelectedItem="{Binding Path=SelectedCityForecast, Mode=TwoWay}"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
-            SelectionMode="None"
-            IsSwipeEnabled="false"
-            IsItemClickEnabled="True"
+            SelectionMode="Single"
+            IsSwipeEnabled="false" SelectionChanged="itemGridView_SelectionChanged"
+            
             />
 
         <!-- Vertical scrolling list only used when snapped -->

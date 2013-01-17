@@ -27,6 +27,8 @@ namespace WeatherForecast.MVX.WinRT.Views
             this.InitializeComponent();
         }
 
+        
+
         public new CityViewModel ViewModel
         {
             get { return (CityViewModel)base.ViewModel; }

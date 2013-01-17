@@ -28,6 +28,7 @@ namespace WeatherForecastReader.Tests.CityProvider
                 mockWebTools = new Mock<IWebTools>();
                 Slough = MockCityProvider.GetCurrentCities().First();
                 CityWeatherForecastSource = new CityWeatherForecastSource(mockWebTools.Object);
+                
             };
 
         private Because of = () =>  CityWeatherForecastSource.GetJsonAsync(Slough) ;

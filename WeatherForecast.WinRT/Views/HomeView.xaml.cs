@@ -1,3 +1,4 @@
+using WeatherForecast.MVVMCore.Models;
 using WeatherForecast.MVVMCore.ViewModels;
 using WeatherForecast.MVX.WinRT.Common;
 using Windows.UI.Xaml;
@@ -16,12 +17,18 @@ namespace WeatherForecast.MVX.WinRT.Views
         public HomeView()
         {
             this.InitializeComponent();
+           
         }
 
         public new HomeViewModel ViewModel
         {
             get { return (HomeViewModel)base.ViewModel; }
             set { base.ViewModel = value; }
+        }
+
+        private void itemGridView_SelectionChanged(object sender, Windows.UI.Xaml.Controls.SelectionChangedEventArgs e)
+        {
+
         }
 
 

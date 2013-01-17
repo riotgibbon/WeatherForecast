@@ -70,7 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CityProvider\CityForecastProviderTests.cs" />
+    <Compile Include="ViewModels\CityForecastProviderTests.cs" />
     <Compile Include="CityProvider\CityProviderTests.cs" />
     <Compile Include="Data\MockCityProvider.cs" />
     <Compile Include="ViewModels\CityWeatherForecastTests.cs" />

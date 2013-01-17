@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using WeatherForecast.Core.Domain;
+using WeatherForecast.Core.Domain.WUG;
 using WeatherForecast.MVVMCore.Models;
 using WeatherForecast.MVX.WinRT.Common;
 using Windows.UI.Xaml.Media;
@@ -218,6 +219,20 @@ namespace WeatherForecast.MVX.WinRT.DataModel
     /// SampleDataSource initializes with placeholder data rather than live production
     /// data so that sample data is provided at both design-time and run-time.
     /// </summary>
+    
+    public sealed class MockCityForecast
+    {
+        private CityForecast forecast;
+        public MockCityForecast()
+        {
+           forecast =  StaticCityProvider.MockCityForecast(); 
+        }
+
+        public CityForecast CityForecast
+        {
+            get { return forecast; }
+        }
+    }
     public sealed class SampleDataSource
     {
         private static SampleDataSource _sampleDataSource = new SampleDataSource();
@@ -227,6 +242,8 @@ namespace WeatherForecast.MVX.WinRT.DataModel
         {
             get { return this._allGroups; }
         }
+
+        public CityForecast MockCityForecast { get { return StaticCityProvider.MockCityForecast(); } }
 
         public ObservableCollection<City> Cities
         {

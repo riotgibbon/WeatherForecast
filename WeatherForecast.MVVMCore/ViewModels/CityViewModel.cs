@@ -11,9 +11,21 @@ namespace WeatherForecast.MVVMCore.ViewModels
 {
     public class CityViewModel : MvxViewModel
     {
+        private CityForecast _cityForecast;
+
         public CityViewModel(string forecastJson)
         {
-            var forecast = JsonConvert.DeserializeObject<CityForecast>(forecastJson);
+            CityForecast = JsonConvert.DeserializeObject<CityForecast>(forecastJson);
+        }
+
+        public CityForecast CityForecast
+        {
+            get { return _cityForecast; }
+            set
+            {
+                _cityForecast = value;
+                RaisePropertyChanged(() => CityForecast);
+            }
         }
     }
 }
