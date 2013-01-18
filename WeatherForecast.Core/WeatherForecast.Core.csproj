@@ -36,6 +36,7 @@
     <Compile Include="Domain\City.cs" />
     <Compile Include="Domain\CityForecast.cs" />
     <Compile Include="Domain\WUG\WUGResponses.cs" />
+    <Compile Include="Helpers\Transformers.cs" />
     <Compile Include="Interfaces\ICityProvider.cs" />
     <Compile Include="Interfaces\ISerialization.cs" />
     <Compile Include="Interfaces\IWebTools.cs" />

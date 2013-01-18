@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Domain.WUG;
+using WeatherForecast.Core.Helpers;
 using WeatherForecast.Core.Interfaces;
 
 namespace WeatherForecast.Core.Services
@@ -39,17 +40,7 @@ namespace WeatherForecast.Core.Services
         {
             var forecastJson = await cityWeatherForecastSource.GetJsonAsync(city);
             var response = JsonConvert.DeserializeObject<WUGResponse>(forecastJson);
-            return GetCityForecast(city, response);
-        }
-
-        public static CityForecast GetCityForecast(City city, WUGResponse response)
-        {
-            return new CityForecast
-                {
-                    City = city,
-                    Forecast = response.forecast,
-                    Now = response.forecast.txt_forecast.forecastday.FirstOrDefault()
-                };
+            return Transformers.GetCityForecast(city, response);
         }
     }
 }
