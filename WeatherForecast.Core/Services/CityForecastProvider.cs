@@ -18,26 +18,18 @@ namespace WeatherForecast.Core.Services
 
         private IWebTools _webTools;
 
-      
-
         public CityForecastProvider( IWebTools webTools)
         {
             _webTools = webTools;
         }
 
-
-
         public async Task<List<CityForecast>> GetCityForecastsAsync(List<City> cities)
         {
-            
-            
             var cityWeatherForecastSource = new CityWeatherForecastSource(_webTools);
-
             var cityForecasts = new List<CityForecast>();
             foreach (var city in cities)
             {
-                var cityForecast = await GetCityForecast(cityWeatherForecastSource, city);
-                cityForecasts.Add(cityForecast);
+                cityForecasts.Add(await GetCityForecast(cityWeatherForecastSource, city));
             }
             return cityForecasts;
                  
@@ -47,14 +39,17 @@ namespace WeatherForecast.Core.Services
         {
             var forecastJson = await cityWeatherForecastSource.GetJsonAsync(city);
             var response = JsonConvert.DeserializeObject<WUGResponse>(forecastJson);
+            return GetCityForecast(city, response);
+        }
 
-            var cityForecast = new CityForecast
+        public static CityForecast GetCityForecast(City city, WUGResponse response)
+        {
+            return new CityForecast
                 {
                     City = city,
                     Forecast = response.forecast,
                     Now = response.forecast.txt_forecast.forecastday.FirstOrDefault()
                 };
-            return cityForecast;
         }
     }
 }

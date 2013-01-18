@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using WeatherForecast.Core;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Domain.WUG;
+using WeatherForecast.Core.Helpers;
 using WeatherForecast.Core.Interfaces;
 using WeatherForecast.Core.Services;
 
@@ -45,15 +46,8 @@ namespace WeatherForecast.MVVMCore.Models
 
         private static CityForecast GetCityForecast(City currentCity)
         {
-            var forecast = JsonConvert.DeserializeObject<WUGResponse>(new MockWeatherUndergroundSource().GetJson()).forecast;
-
-            var cityForecast = new CityForecast
-                                   {
-                                       City = currentCity,
-                                       Now = forecast.txt_forecast.forecastday[0],
-                                       Forecast = forecast
-                                   };
-            return cityForecast;
+            var forecast = JsonConvert.DeserializeObject<WUGResponse>(new MockWeatherUndergroundSource().GetJson());
+            return Transformers.GetCityForecast(currentCity, forecast);
         }
 
         class StaticWebTool:IWebTools

@@ -24,15 +24,11 @@ namespace WeatherForecast.MVVMCore.ViewModels
         {
             LoadCities();
         }
-       
-
-       
         private void NavigateToForecast(CityForecast selectedCityForecast)
         {
             var forecastJson = JsonConvert.SerializeObject(selectedCityForecast);
             RequestNavigate<CityViewModel>(new {forecastJson = forecastJson});
         }
-
 
         public List<City> Cities
         {
