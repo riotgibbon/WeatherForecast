@@ -6,7 +6,8 @@ using WeatherForecast.Core;
 using WeatherForecast.Core.Interfaces;
 using WeatherForecast.Core.Services;
 using WeatherForecast.MVVMCore.Models;
-using WeatherForecast.MVVMCore.Service;
+
+using WeatherForecast.MVVMCore.Services;
 
 namespace WeatherForecast.MVVMCore
 {

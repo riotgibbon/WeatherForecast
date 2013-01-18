@@ -30,18 +30,31 @@ namespace WeatherForecast.Core.Services
         public async Task<List<CityForecast>> GetCityForecastsAsync(List<City> cities)
         {
             
-            var cityForecasts = new List<CityForecast>();
+            
             var cityWeatherForecastSource = new CityWeatherForecastSource(_webTools);
+
+            var cityForecasts = new List<CityForecast>();
             foreach (var city in cities)
             {
-                var forecastJson = await cityWeatherForecastSource.GetJsonAsync(city);
-                var response = JsonConvert.DeserializeObject<WUGResponse>(forecastJson);
-
-                var cityForecast = new CityForecast {City = city, Forecast = response.forecast, Now = response.forecast.txt_forecast.forecastday.FirstOrDefault()};
+                var cityForecast = await GetCityForecast(cityWeatherForecastSource, city);
                 cityForecasts.Add(cityForecast);
             }
             return cityForecasts;
                  
+        }
+
+        private static async Task<CityForecast> GetCityForecast(CityWeatherForecastSource cityWeatherForecastSource, City city)
+        {
+            var forecastJson = await cityWeatherForecastSource.GetJsonAsync(city);
+            var response = JsonConvert.DeserializeObject<WUGResponse>(forecastJson);
+
+            var cityForecast = new CityForecast
+                {
+                    City = city,
+                    Forecast = response.forecast,
+                    Now = response.forecast.txt_forecast.forecastday.FirstOrDefault()
+                };
+            return cityForecast;
         }
     }
 }

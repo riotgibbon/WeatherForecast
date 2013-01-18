@@ -21,18 +21,18 @@
         <CollectionViewSource
             x:Name="itemsViewSource"
             Source="{Binding CityForecasts}"
-            d:Source="{Binding MockCityForecasts, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=data:SampleDataSource}}"/>
+            d:Source="{Binding MockWithCommandCityForecasts, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=data:SampleDataSource}}"/>
         <DataTemplate x:Key="Standard250x250ItemTemplate">
             <Grid HorizontalAlignment="Left" Width="250" Height="250"  >
 
                 <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
-                    <Image Source="{Binding Now.icon_url}" Height="50" Width="50" VerticalAlignment="Top" AutomationProperties.Name="{Binding Title}"/>
+                    <Image Source="{Binding Item.Now.icon_url}" Height="50" Width="50" VerticalAlignment="Top" AutomationProperties.Name="{Binding Title}"/>
                 </Border>
 
-                <TextBlock VerticalAlignment="Top" Text="{Binding City.Name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="24" Margin="15,0,15,0"/>
+                <TextBlock VerticalAlignment="Top" Text="{Binding Item.City.Name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="24" Margin="15,0,15,0"/>
                 <StackPanel VerticalAlignment="Bottom"  Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
-                    <TextBlock VerticalAlignment="Bottom"   Text="{Binding Now.fcttext_metric}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="Wrap" Margin="15,0,15,10"/>
-                    <Button Command="{Binding DataContext.SearchCommand, RelativeSource={RelativeSource TemplatedParent}}"  CommandParameter="{Binding}" Content="{Binding City.Name}"></Button>
+                    <TextBlock VerticalAlignment="Bottom"   Text="{Binding Item.Now.fcttext_metric}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="Wrap" Margin="15,0,15,10"/>
+                    <Button Command="{Binding Command}"   Content="{Binding Item.City.Name}"></Button>
                 </StackPanel>
             </Grid>
         </DataTemplate>

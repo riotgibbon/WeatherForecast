@@ -3,7 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using WeatherForecast.Core.Interfaces;
 
-namespace WeatherForecast.MVVMCore.Service
+namespace WeatherForecast.MVVMCore.Services
 {
 	public class PortableWebTools : IWebTools
 	{

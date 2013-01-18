@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
+using System.Linq;
 using Cirrious.MvvmCross.Commands;
 using Cirrious.MvvmCross.ExtensionMethods;
 using Cirrious.MvvmCross.ViewModels;
@@ -7,40 +8,29 @@ using Newtonsoft.Json;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Interfaces;
 using WeatherForecast.Core.Services;
+using WeatherForecast.MVVMCore.Helpers;
+
 
 namespace WeatherForecast.MVVMCore.ViewModels
 {
     public class HomeViewModel : MvxViewModel
     {
         private List<City> _cities;
-        private List<CityForecast> _cityForecasts;
+        private List<WithCommand<CityForecast>> _cityForecasts;
         private bool _isBusy;
-        private CityForecast _selectedCityForecast;
+        
 
         public HomeViewModel()
         {
             LoadCities();
         }
-        public ICommand SearchCommand
-        {
-            get
-            {
-                return new MvxRelayCommand(GetDetailForecast);
-            }
-        }
+       
 
-        public ICommand DetailCommand
+       
+        private void NavigateToForecast(CityForecast selectedCityForecast)
         {
-            get
-            {
-                return new MvxRelayCommand(GetDetailForecast);
-            }
-        }
-
-        private void GetDetailForecast()
-        {
-            var forecastJson = JsonConvert.SerializeObject(SelectedCityForecast);
-            RequestNavigate<CityViewModel>(new { forecastJson = forecastJson });
+            var forecastJson = JsonConvert.SerializeObject(selectedCityForecast);
+            RequestNavigate<CityViewModel>(new {forecastJson = forecastJson});
         }
 
 
@@ -54,16 +44,7 @@ namespace WeatherForecast.MVVMCore.ViewModels
             }
         }
 
-        public CityForecast SelectedCityForecast
-        {
-            get { return _selectedCityForecast; }
-            set
-            {
-                _selectedCityForecast = value;
-                RaisePropertyChanged(() => SelectedCityForecast);
-            }
-        }
-      
+        
         public bool IsBusy
         {
             get { return _isBusy; }
@@ -74,7 +55,7 @@ namespace WeatherForecast.MVVMCore.ViewModels
             }
         }
 
-        public List<CityForecast> CityForecasts
+        public List<WithCommand<CityForecast>> CityForecasts
         {
             get
             {
@@ -102,7 +83,13 @@ namespace WeatherForecast.MVVMCore.ViewModels
         {
             IsBusy = true;
             Cities = await CityProvider.GetCurrentCitiesAsync();
-            CityForecasts = await CityForecastProvider.GetCityForecastsAsync(Cities);
+            var cityForecasts = await CityForecastProvider.GetCityForecastsAsync(Cities);
+            CityForecasts =
+                cityForecasts.Select(
+                    forecast =>
+                    new WithCommand<CityForecast>(forecast, new MvxRelayCommand(() => 
+                        NavigateToForecast(forecast))))
+                             .ToList();
             IsBusy = false;
         }
     }

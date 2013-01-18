@@ -33,11 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\WithCommand.cs" />
     <Compile Include="IoC\MvxAutofacIoCProvider.cs" />
     <Compile Include="Models\MockWeatherUndergroundSource.cs" />
     <Compile Include="Models\StaticCityProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\PortableWebTools.cs" />
+    <Compile Include="Services\PortableWebTools.cs" />
     <Compile Include="StartNavigation.cs" />
     <Compile Include="ViewModels\CityViewModel.cs" />
     <Compile Include="WeatherForecastApp.cs" />

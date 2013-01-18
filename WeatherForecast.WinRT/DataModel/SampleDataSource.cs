@@ -2,8 +2,10 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Cirrious.MvvmCross.Commands;
 using WeatherForecast.Core.Domain;
 using WeatherForecast.Core.Domain.WUG;
+using WeatherForecast.MVVMCore.Helpers;
 using WeatherForecast.MVVMCore.Models;
 using WeatherForecast.MVX.WinRT.Common;
 using Windows.UI.Xaml.Media;
@@ -252,6 +254,15 @@ namespace WeatherForecast.MVX.WinRT.DataModel
         public List<CityForecast> MockCityForecasts
         {
             get { return StaticCityProvider.MockCityForecasts; }
+        }
+
+        public List<WithCommand<CityForecast>> MockWithCommandCityForecasts
+        {
+            get
+            {
+                return StaticCityProvider.MockCityForecasts.Select(
+                  forecast => new WithCommand<CityForecast>(forecast, new MvxRelayCommand(() => { }))).ToList();
+            }
         }
         public static IEnumerable<SampleDataGroup> GetGroups(string uniqueId)
         {
